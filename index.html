@@ -9,12 +9,13 @@
     :root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#050507;color:#f7f7fa;--muted:#a2a2af;--rainbow:linear-gradient(100deg,#ff637d,#ffad5c,#ffe16b,#76e3a5,#69c8ff,#b497ff,#ff82d4)}
     *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -15%,#28203e 0,transparent 47%),#050507}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.65;background-image:radial-gradient(1px 1px at 12% 18%,#fff 95%,transparent),radial-gradient(1px 1px at 74% 23%,#bbc8ff 95%,transparent),radial-gradient(1px 1px at 33% 66%,#fff 95%,transparent),radial-gradient(1.5px 1.5px at 83% 79%,#c5bbff 95%,transparent);background-size:283px 237px,367px 293px,421px 331px,503px 409px}
     main{position:relative;width:min(1100px,calc(100% - 40px));margin:auto;padding:clamp(72px,12vw,130px) 0 80px}.hero{text-align:center;margin-bottom:clamp(65px,9vw,100px)}.eyebrow,.section-label,.tag{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.eyebrow{color:#b8aaff}.spark{color:#e8d4ff;margin:0 9px}h1{font-size:clamp(3.8rem,9vw,7rem);line-height:1;letter-spacing:-.075em;margin:20px 0 16px;background:var(--rainbow);color:transparent;background-clip:text;-webkit-background-clip:text}.hero p{color:var(--muted);font-size:1.05rem;margin:0}.section-heading{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff1c;padding-bottom:17px;margin-bottom:22px}.section-heading h2{font-size:1.2rem;margin:0;letter-spacing:-.03em}.section-label{color:#858594}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{display:flex;flex-direction:column;min-height:290px;padding:25px;border:1px solid #ffffff1c;border-radius:20px;background:linear-gradient(145deg,#19191fef,#0d0d11ef);box-shadow:0 20px 50px #0005}.icon{display:grid;place-items:center;width:49px;height:49px;border-radius:15px;font-size:1.4rem;background:#ffffff0c;border:1px solid #ffffff12}.card h3{font-size:1.45rem;letter-spacing:-.04em;margin:22px 0 8px}.card p{color:#aaaab6;line-height:1.6;margin:0 0 20px;flex:1}.tag{color:#aaa3c7;letter-spacing:.08em;font-size:.7rem}.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}.links a{display:inline-flex;align-items:center;min-height:40px;padding:9px 13px;border-radius:10px;background:#f4f2fa;color:#15131a;text-decoration:none;font-size:.85rem;font-weight:800;transition:transform .18s,background .18s}.links a.secondary{background:#ffffff0b;color:#e1dfe9;border:1px solid #ffffff20}.links a:hover{transform:translateY(-2px);background:#d6ccff;color:#15131a}a:focus-visible{outline:2px solid #b7a5ff;outline-offset:4px}footer{margin-top:70px;text-align:center;color:#777786;font-size:.8rem}footer span{color:#b9a6ff}@media(max-width:760px){.grid{grid-template-columns:1fr}.card{min-height:0}.hero{margin-bottom:60px}main{width:min(100% - 32px,520px);padding-top:75px}.card p{margin-bottom:16px}}
+    .ambient-sky{position:fixed;inset:0;overflow:hidden;pointer-events:none}.shooting-star{position:absolute;width:var(--star-length);height:var(--star-width);border-radius:50%;opacity:0;background:linear-gradient(90deg,transparent,var(--star-color) 45%,#fff);box-shadow:0 0 8px 1px var(--star-color);transform-origin:left center;animation:star-flight var(--flight-time) linear forwards}.shooting-star:after{content:"";position:absolute;top:50%;right:0;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 9px 3px var(--star-color);transform:translate(50%,-50%)}@keyframes star-flight{0%{opacity:0;transform:translate(0,0) rotate(var(--star-angle)) scaleX(.15)}12%{opacity:.8;transform:translate(0,0) rotate(var(--star-angle)) scaleX(1)}78%{opacity:.65;transform:translate(var(--star-dx),var(--star-dy)) rotate(var(--star-angle)) scaleX(1)}100%{opacity:0;transform:translate(var(--star-dx),var(--star-dy)) rotate(var(--star-angle)) scaleX(.15)}}
   </style>
 </head>
 <body>
+  <div class="ambient-sky" aria-hidden="true"></div>
   <main>
     <header class="hero">
-      <div class="eyebrow"><span class="spark">✦</span> A little corner of the internet <span class="spark">✦</span></div>
       <h1>Ryan's Hub</h1>
       <p>A home for the things I've made.</p>
     </header>
@@ -22,11 +23,50 @@
       <div class="section-heading"><h2 id="projects-title">Projects</h2><span class="section-label">Explore the collection</span></div>
       <div class="grid">
         <article class="card"><div class="icon" aria-hidden="true">✦</div><h3>Name Picker</h3><p>Pick a name at random, with a little help from a colorful cast of characters.</p><span class="tag">Random picker · Groups</span><div class="links"><a href="https://names.ryanbuxton.dev/">Visit Name Picker</a></div></article>
-        <article class="card"><div class="icon" aria-hidden="true">🎲</div><h3>Catan Dice Tracker</h3><p>Track the rolls, explore the stats, and look back at games of Catan.</p><span class="tag">Game tracker · Statistics</span><div class="links"><a href="https://catan.ryanbuxton.dev/">Visit Catan</a><a class="secondary" href="https://catan.ryanbuxton.dev/games.html">Catan games</a></div></article>
-        <article class="card"><div class="icon" aria-hidden="true">🎁</div><h3>The Christmas List</h3><p>A little place for big wishes, with gift lists for the whole family.</p><span class="tag">Wish lists · Gifts</span><div class="links"><a href="https://gifts.ryanbuxton.dev/">Visit Wish Lists</a><a class="secondary" href="https://gifts.ryanbuxton.dev/?person=ryan">Ryan's list</a></div></article>
+        <article class="card"><div class="icon" aria-hidden="true">🎲</div><h3>Catan Dice Tracker</h3><p>Track each roll and see how the dice stack up against the odds.</p><span class="tag">Game tracker · Statistics</span><div class="links"><a href="https://catan.ryanbuxton.dev/">Visit Dice Tracker</a></div></article>
+        <article class="card"><div class="icon" aria-hidden="true">🏆</div><h3>Catan Leaderboard</h3><p>Explore game history, player records, and the Catan leaderboards.</p><span class="tag">Game history · Leaderboards</span><div class="links"><a href="https://catan.ryanbuxton.dev/games.html">View Leaderboard</a></div></article>
+        <article class="card"><div class="icon" aria-hidden="true">🎁</div><h3>The Christmas List</h3><p>A little place for big wishes, with gift lists for the whole family.</p><span class="tag">Wish lists · Gifts</span><div class="links"><a href="https://gifts.ryanbuxton.dev/">Visit Wish Lists</a></div></article>
+        <article class="card"><div class="icon" aria-hidden="true">🎄</div><h3>Ryan's Christmas List</h3><p>A few things on Ryan's wish list this Christmas.</p><span class="tag">Ryan · Wish list</span><div class="links"><a href="https://gifts.ryanbuxton.dev/?person=ryan">View Ryan's List</a></div></article>
       </div>
     </section>
     <footer><span>✦</span> Made by Ryan <span>✦</span></footer>
   </main>
+  <script>
+    (() => {
+      const sky = document.querySelector('.ambient-sky');
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+      const colors = ['#ff647c', '#ffb454', '#ffe56d', '#70e6b0', '#69caff', '#a88cff', '#ff79d2'];
+      let timer;
+      function shoot() {
+        if (document.hidden || reducedMotion.matches) return;
+        const star = document.createElement('span');
+        const x = Math.random() * innerWidth, y = Math.random() * innerHeight;
+        const angle = Math.random() * 360, radians = angle * Math.PI / 180;
+        const dx = Math.cos(radians), dy = Math.sin(radians), edges = [];
+        if (dx > 0) edges.push((innerWidth - x) / dx); else if (dx < 0) edges.push(-x / dx);
+        if (dy > 0) edges.push((innerHeight - y) / dy); else if (dy < 0) edges.push(-y / dy);
+        const distance = Math.min(...edges);
+        star.className = 'shooting-star';
+        star.style.left = `${x}px`; star.style.top = `${y}px`;
+        star.style.setProperty('--star-color', colors[Math.floor(Math.random() * colors.length)]);
+        star.style.setProperty('--star-angle', `${angle}deg`);
+        star.style.setProperty('--star-dx', `${dx * distance}px`); star.style.setProperty('--star-dy', `${dy * distance}px`);
+        star.style.setProperty('--star-length', `${55 + Math.random() * 150}px`);
+        star.style.setProperty('--star-width', `${1 + Math.random() * 1.5}px`);
+        star.style.setProperty('--flight-time', `${1.8 + Math.random() * 4.2}s`);
+        star.addEventListener('animationend', () => star.remove(), { once: true });
+        sky.append(star);
+        timer = setTimeout(shoot, 600 + Math.random() * 1100);
+      }
+      function refresh() {
+        clearTimeout(timer);
+        if (reducedMotion.matches) sky.replaceChildren();
+        if (!document.hidden && !reducedMotion.matches) shoot();
+      }
+      document.addEventListener('visibilitychange', refresh);
+      reducedMotion.addEventListener('change', refresh);
+      shoot();
+    })();
+  </script>
 </body>
 </html>
